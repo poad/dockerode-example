@@ -1,0 +1,40 @@
+name: Build and Test
+ 
+on:
+  push:
+    branches:
+      - main
+
+  workflow_dispatch:
+
+permissions:
+  actions: read
+  checks: write
+  contents: none
+  deployments: none
+  id-token: write
+  issues: none
+  packages: none
+  pull-requests: write
+  repository-projects: none
+  security-events: write
+  statuses: write
+
+
+  electron-test:
+    strategy:
+      matrix:
+        node-version: [14.x, 16.x]
+
+    if: github.actor != 'dependabot[bot]' && github.token != '' && github.token != null
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+          check-latest: true
+
+      - name: build
+        run: yarn install && yarn lint --fix && yarn build && yarn export
