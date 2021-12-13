@@ -40,8 +40,6 @@ jobs:
     strategy:
       matrix:
         node-version: [14.x, 16.x]
-        targets:
-          - path: dockerode-example
 
     runs-on: ubuntu-latest
     steps:
