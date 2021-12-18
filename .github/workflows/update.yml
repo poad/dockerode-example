@@ -55,14 +55,14 @@ jobs:
       if: success() && env.CHANGE_STATE == 'changed'
       uses: ad-m/github-push-action@master
       with:
-        github_token: ${{ secrets.PERSONAL_TOKEN_FOR_GITHUB_ACTIONS }}
+        github_token: ${{ secrets.GITHUB_TOKEN }}
         branch: ${{ env.BRANCH_NAME }}
 
     - name: Push Changes
       if: success() && env.CHANGE_STATE == 'changed'
       uses: ad-m/github-push-action@master
       with:
-        github_token: ${{ secrets.PERSONAL_TOKEN_FOR_GITHUB_ACTIONS }}
+        github_token: ${{ secrets.GITHUB_TOKEN }}
         branch: ${{ env.BRANCH_NAME }}
 
     - name: Prepare create pull request
@@ -78,7 +78,7 @@ jobs:
         head_branch: ${{ env.BRANCH_NAME }}
         title: ${{ format('Auto update at {0}', env.TIMESTAMP) }}
         body: ${{ format('Update the modules at {0}', env.TIMESTAMP) }}
-        github_token: ${{ secrets.PERSONAL_TOKEN_FOR_GITHUB_ACTIONS }}
+        github_token: ${{ secrets.GITHUB_TOKEN }}
         repository: ${{ env.REPO_NAME }}
         owner: ${{ github.repository_owner }}
 
@@ -117,7 +117,7 @@ jobs:
       uses: poad/github-pull-request-auto-merge-enable-action@v1.0.0
       with:
         pull_request_id: ${{ env.PULL_REQUEST_ID }}
-        github_token: ${{ secrets.PERSONAL_TOKEN_FOR_GITHUB_ACTIONS }}
+        github_token: ${{ secrets.GITHUB_TOKEN }}
         repository: ${{ github.event.repository.name }}
         owner: ${{ github.repository_owner }}
         merge_method: SQUASH
