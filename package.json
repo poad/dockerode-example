@@ -19,5 +19,8 @@
     "electron-builder": "^23.0.3",
     "eslint": "^8.13.0",
     "eslint-plugin-import": "^2.26.0"
+  },
+  "resolutions": {
+    "async": "^3.2.2"
   }
 }
