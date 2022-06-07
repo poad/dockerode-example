@@ -12,7 +12,7 @@
   "author": "poad",
   "license": "Apache-2.0",
   "dependencies": {
-    "dockerode": "^3.3.1"
+    "dockerode": "^3.3.2"
   },
   "devDependencies": {
     "electron": "^19.0.3",
