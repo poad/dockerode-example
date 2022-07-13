@@ -15,9 +15,9 @@
     "dockerode": "^3.3.2"
   },
   "devDependencies": {
-    "electron": "^19.0.8",
-    "electron-builder": "^23.1.0",
-    "eslint": "^8.19.0",
-    "eslint-plugin-import": "^2.26.0"
+    "electron": "*",
+    "electron-builder": "*",
+    "eslint": "*",
+    "eslint-plugin-import": "*"
   }
 }
